@@ -1,0 +1,110 @@
+.sbar {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.sicon {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+.sfield {
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    font-size: 16px;
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    min-height: 18px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: solid 1px var(--text-color);
+    border-radius: 20px;
+    padding-left: 40px;
+}
+
+.sfield:focus {
+    outline: none;
+}
+
+.table-container {
+    height: 79vh;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.task-table {
+    padding-top: 5px;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    width: 100%;
+    color: var(--text-color);
+}
+
+.task-table td {
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sname a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.sname:hover {
+    background-color: var(--box3-color);
+}
+
+.hidden {
+    display: none;
+}
+
+.pagination-container {
+    width: calc(100% - 2rem);
+    display: flex;
+    align-items: center;
+    /* position: absolute; */
+    bottom: 0;
+    padding: 1rem 0;
+    justify-content: center;
+}
+
+.pagination-number,
+.pagination-button {
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+    color: var(--text-color);
+}
+
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+    background: var(--border-color);
+}
+
+.pagination-number.active {
+    color: var(--page-number-color);
+    background: var(--black-light-color);
+}
