@@ -53,7 +53,7 @@ const Sidebar = () => {
         </li>
       </ul>
     </div> */}
-      <body>
+      {/* <body> */}
         <nav id="sidenav">
           <div class="logo-name">
             <div class="images">
@@ -112,7 +112,7 @@ const Sidebar = () => {
             </ul>
           </div>
         </nav>
-      </body>
+      {/* </body> */}
     </>
   );
 }
