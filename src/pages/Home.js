@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <section class="dashboard">
@@ -18,9 +20,9 @@ const Home = () => {
           <div class="boxes">
             <div class="box box1">
               <i class="uil uil-chart"></i>
-              <a href="user?page=listyourprojects">
+              <Link to="/project-management">
                 <span class="number">Project Management</span>
-              </a>
+              </Link>
             </div>
             <div class="box box2">
               <i class="uil uil-book"></i>
@@ -28,9 +30,9 @@ const Home = () => {
             </div>
             <div class="box box3">
               <i class="uil uil-search"></i>
-              <a href="user?page=searchbox">
+              <Link to="/search">
                 <span class="number">Search Projects</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
