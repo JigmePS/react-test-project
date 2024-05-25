@@ -20,7 +20,7 @@ const Home = () => {
           <div class="boxes">
             <div class="box box1">
               <i class="uil uil-chart"></i>
-              <Link to="/project-management">
+              <Link to="/project-list">
                 <span class="number">Project Management</span>
               </Link>
             </div>
