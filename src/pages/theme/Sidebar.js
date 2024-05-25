@@ -69,7 +69,7 @@ const Sidebar = () => {
                 <i class="uil uil-estate"></i>
                 <span class="link-name">Home</span>
               </Link></li>
-              <li><Link to="/project-management">
+              <li><Link to="/project-list">
                 <i class="uil uil-files-landscapes"></i>
                 <span class="link-name">Your Projects</span>
               </Link></li>

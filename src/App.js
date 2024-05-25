@@ -4,6 +4,7 @@ import Layout from './pages/theme/Layout';
 import ProjectManagement from "./pages/ProjectManagement/ProjectManagement";
 // import AddProject from "./pages/ProjectManagement/AddProject";
 import Home from "./pages/Home";
+import ProjectList from "./pages/ProjectManagement/ProjectList";
 import Search from "./pages/Search/Search";
 // import ProjectDetail from "./pages/ProjectManagement/UserDetail";
 import Login from "./pages/Auth/Login";
@@ -20,6 +21,7 @@ function App() {
             {/* <Route path="/project-management/add" element={<PrivateRoute component={AddProject}/>} />
             <Route path="/project-management/detail/:pId" element={<PrivateRoute component={ProjectDetail}/>} /> */}
             <Route path="/home" element={<PrivateRoute component={Home}/>} />
+            <Route path="/project-list" element={<PrivateRoute component={ProjectList}/>} />
             <Route path="/search" element={<PrivateRoute component={Search}/>} />
           </Route>
           <Route path="/landing" element={<Landing />} />

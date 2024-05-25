@@ -1,6 +1,5 @@
 /* Add a black background color to the top navigation */
 .topnav {
-    /* background-color: #333; */
     border-bottom: 3px solid var(--border-color);
     overflow: hidden;
 }
@@ -32,16 +31,16 @@
     background-color: inherit;
     min-width: 135.03px;
     font-family: inherit;
-    /* Important for vertical align on mobile phones */
     margin: 0;
-    /* Important for vertical align on mobile phones */
 }
 
 .list-group {
-    /* background-color: #333; */
     border-bottom: 1px solid var(--border-color);
     overflow: hidden;
     height: 79vh;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .list-group li {
@@ -68,7 +67,6 @@
     width: calc(100% - 2rem);
     display: flex;
     align-items: center;
-    /* position: absolute; */
     bottom: 0;
     padding: 1rem 0;
     justify-content: center;
