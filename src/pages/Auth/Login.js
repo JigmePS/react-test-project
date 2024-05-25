@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ViPasswordInput from "../../components/ViPasswordInput";
 import ViTextInput from "../../components/ViTextInput";
+import "./Login.css";
 
 const Login = () => {
 
