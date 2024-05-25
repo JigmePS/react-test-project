@@ -54,7 +54,7 @@ function ProjectList() {
           <div className="topnav">
             <span>YOUR PROJECTS</span>
             <div className="topnav-right">
-              <Link className="addbtn" to=""><i className="uil uil-plus-circle"></i></Link>
+              <Link className="addbtn" to="/project-add"><i className="uil uil-plus-circle"></i></Link>
             </div>
           </div>
           <main>
