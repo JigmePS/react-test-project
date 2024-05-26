@@ -1,16 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Layout from './pages/theme/Layout';
-import ProjectManagement from "./pages/ProjectManagement/ProjectManagement";
-// import AddProject from "./pages/ProjectManagement/AddProject";
-import Home from "./pages/Home";
-import ProjectList from "./pages/ProjectManagement/ProjectList";
-import ProjectAdd from "./pages/ProjectManagement/ProjectAdd";
 import Search from "./pages/Search/Search";
-// import ProjectDetail from "./pages/ProjectManagement/UserDetail";
 import Login from "./pages/Auth/Login";
 import PrivateRoute from "./routes/PrivateRoute";
-import Landing from "./pages/Landing";
+import EmployeeList from "./pages/EmployeeManagement/EmployeeList";
+import EmployeeAdd from "./pages/EmployeeManagement/EmployeeAdd";
+import List from "./pages/List";
 
 function App() {
   return (
@@ -18,15 +14,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<PrivateRoute component={Layout} />} >
-            <Route path="/project-management" element={<PrivateRoute component={ProjectManagement}/>} />
-            {/* <Route path="/project-management/add" element={<PrivateRoute component={AddProject}/>} />
-            <Route path="/project-management/detail/:pId" element={<PrivateRoute component={ProjectDetail}/>} /> */}
-            <Route path="/home" element={<PrivateRoute component={Home}/>} />
-            <Route path="/project-list" element={<PrivateRoute component={ProjectList}/>} />
-            <Route path="/project-add" element={<PrivateRoute component={ProjectAdd}/>} />
+            <Route path="/employee-list" element={<PrivateRoute component={EmployeeList}/>} />
+            <Route path="/employee-add" element={<PrivateRoute component={EmployeeAdd}/>} />
+            <Route path="/list" element={<PrivateRoute component={List}/>} />
             <Route path="/search" element={<PrivateRoute component={Search}/>} />
           </Route>
-          <Route path="/landing" element={<Landing />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>

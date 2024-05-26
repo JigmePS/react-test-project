@@ -60,18 +60,18 @@ const Sidebar = () => {
               <img src={logoImg} alt="image of Logo" />
             </div>
 
-            <span class="logo_name">OPERIS</span>
+            <span class="logo_name">MAGISTER</span>
           </div>
 
           <div class="menu-items">
             <ul class="nav-links">
-              <li><Link to="/home">
+              {/* <li><Link to="/list">
                 <i class="uil uil-estate"></i>
                 <span class="link-name">Home</span>
-              </Link></li>
-              <li><Link to="/project-list">
-                <i class="uil uil-files-landscapes"></i>
-                <span class="link-name">Your Projects</span>
+              </Link></li> */}
+              <li><Link to="/employee-list">
+                <i class="uil uil-user"></i>
+                <span class="link-name">Employees List</span>
               </Link></li>
               <li><Link to="/search">
                 <i class="uil uil-search"></i>
@@ -82,10 +82,10 @@ const Sidebar = () => {
             </ul>
 
             <ul class="logout-mode">
-              <li><Link to="/user-management">
+              {/* <li><Link to="/test">
                 <i class="uil uil-user-circle"></i>
                 <span class="link-name">User</span>
-              </Link></li>
+              </Link></li> */}
               {/* <li class="mode">
                 <a href="#">
                   <i class="uil uil-moon"></i>
@@ -96,7 +96,7 @@ const Sidebar = () => {
                   <span class="switch"></span>
                 </div>
               </li> */}
-              <li><Link to="/landing" onClick={logout}>
+              <li><Link to="/login" onClick={logout}>
                 <i class="uil uil-signout"></i>
                 <span class="link-name">Logout</span>
               </Link></li>

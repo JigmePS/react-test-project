@@ -503,7 +503,7 @@ body.dark .switch:before {
   width: 1519px;
   height: 898px;
   position: relative;
-  background-image: url("./images/bg.png");
+  background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -512,7 +512,6 @@ body.dark .switch:before {
   width: 1519px;
   height: 898px;
   position: relative;
-  background-image: url("./images/bgHome.png");
   background-repeat: no-repeat;
   background-size: cover;
 }

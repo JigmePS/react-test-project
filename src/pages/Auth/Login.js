@@ -26,7 +26,7 @@ const Login = () => {
 
     if (isLogin) {
       localStorage.setItem('isLogin', '1');
-      navigate('/home');
+      navigate('/employee-list');
     } else {
       alert('Login failed');
     }
@@ -35,40 +35,15 @@ const Login = () => {
   useEffect(() => {
     const isLogin = localStorage.getItem('isLogin');
     if (isLogin === '1') {
-      navigate('/home');
+      navigate('/employee-list');
     }
   }, []);
 
   const icon = document.getElementById("Svg");
   const pword = document.getElementById("EnterPassword");
 
-  // icon.addEventListener("click", function () {
-  //   this.classList.toggle("fa-eye-slash")
-  //   const type = pword.getAttribute("type") === "password" ? "text" : "password"
-  //   pword.setAttribute("type", type)
-  // })
-
   return (
     <>
-    {/* <div className="login-form">
-      <h1>User Login</h1>
-      <form onSubmit={doLogin}>
-        <ViTextInput
-          title="Email"
-          name="email"
-          handleInputChange={handleInputChange}
-          value={email} />
-        <ViPasswordInput
-          title="Password"
-          name="password"
-          handleInputChange={handleInputChange}
-          value={password} />
-
-        <div className="form-group">
-          <button type="submit" className="btn">Login</button>
-        </div>
-      </form>
-    </div> */}
       <body id="lobody">
 
         <div id="RootWrapperLogin">
@@ -76,7 +51,7 @@ const Login = () => {
           <div id="Case">
 
             <span id="LogInToOperis">
-              Log in to Operis
+              Log in to Magister
             </span>
 
             <form onSubmit={doLogin} id="Form">
@@ -101,26 +76,16 @@ const Login = () => {
                   id="EnterPassword"
                   placeholder="Enter Password" />
 
-                {/* <i class="fa-solid fa-eye" id="Svg"></i> */}
-
               </div>
 
               <input type="submit" value="Log in" id="InputLogin" />
 
             </form>
 
-            {/* <div id="Line1"></div>
-
-            <span id="NewUser">New User?</span>
-
-            <a href="user?page=newUsers" id="SignUpForAnAccount">
-              Sign up for an account
-            </a> */}
-
           </div>
 
           <span id="Copyright2024Operis">
-            Copyright © 2024 Operis
+            Copyright © 2024 Magister
           </span>
 
         </div>
