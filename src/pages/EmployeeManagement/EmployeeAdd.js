@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { useOutletContext } from "react-router-dom";
 import "./AddEmployee.css"; // Make sure to create and import the corresponding CSS file
 
 function AddEmployee({ employees, setEmployees, setIsAdding }) {

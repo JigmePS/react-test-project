@@ -3,27 +3,27 @@ import Swal from 'sweetalert2';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
-// import List from '../EmployeeManagement/EmployeeList';
-// import Add from '../EmployeeManagement/EmployeeAdd';
-// import Edit from '../EmployeeManagement/EmployeeEdit';
+import List from '../EmployeeManagement/EmployeeList';
+import Add from '../EmployeeManagement/EmployeeAdd';
+import Edit from '../EmployeeManagement/EmployeeEdit';
 
 function Layout() {
 
   const employeesData = [
     {
       id: 1,
-      firstName: 'Susan',
-      lastName: 'Jordon',
-      email: 'susan@example.com',
-      salary: '95000',
+      firstName: 'Bishal Deep',
+      lastName: 'Basnet',
+      email: 'bishal@example.com',
+      salary: '1000000',
       date: '2019-04-11'
     },
     {
       id: 2,
-      firstName: 'Adrienne',
-      lastName: 'Doak',
-      email: 'adrienne@example.com',
-      salary: '80000',
+      firstName: 'Niroj',
+      lastName: 'KC',
+      email: 'niroj@example.com',
+      salary: '10',
       date: '2019-04-17'
     },
     {
@@ -126,10 +126,23 @@ function Layout() {
     });
   };
 
+  const contextValue = {
+    employees,
+    setEmployees,
+    selectedEmployee,
+    setSelectedEmployee,
+    isAdding,
+    setIsAdding,
+    isEditing,
+    setIsEditing,
+    handleEdit,
+    handleDelete
+  };
+
   return (
     <div className="container">
       <Sidebar />
-      <Outlet
+      {/* <Outlet
         context={{
           employees,
           setIsAdding,
@@ -139,7 +152,33 @@ function Layout() {
           selectedEmployee,
           setIsEditing,
         }}
-      />
+      /> */}
+        {/* {!isAdding && !isEditing && (
+          <>
+            <List
+              setIsAdding={setIsAdding}
+              employees={employees}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
+            />
+          </>
+        )}
+        {isAdding && (
+          <Add
+            employees={employees}
+            setEmployees={setEmployees}
+            setIsAdding={setIsAdding}
+          />
+        )}
+        {isEditing && (
+          <Edit
+            employees={employees}
+            selectedEmployee={selectedEmployee}
+            setEmployees={setEmployees}
+            setIsEditing={setIsEditing}
+          />
+        )} */}
+        <Outlet context={contextValue}/>
     </div>
   );
 };
