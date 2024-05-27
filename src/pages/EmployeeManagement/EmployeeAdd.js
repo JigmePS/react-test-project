@@ -54,13 +54,14 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
         <section className="dashboard">
             <div>
                 <div className="topnav">
-                    <span>Add Task</span>
+                    <span>Add Employee</span>
                 </div>
                 <div className="form-container">
                     <form onSubmit={handleAdd} className="addform">
                         <label htmlFor="firstName">First Name</label>
                         <input
                             id="firstName"
+                            class= "field"
                             type="text"
                             ref={textInput}
                             name="firstName"
@@ -70,6 +71,7 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
                         <label htmlFor="lastName">Last Name</label>
                         <input
                             id="lastName"
+                            class= "field"
                             type="text"
                             name="lastName"
                             value={lastName}
@@ -78,6 +80,7 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
                         <label htmlFor="email">Email</label>
                         <input
                             id="email"
+                            class= "field"
                             type="email"
                             name="email"
                             value={email}
@@ -86,6 +89,7 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
                         <label htmlFor="salary">Salary ($)</label>
                         <input
                             id="salary"
+                            class= "field"
                             type="number"
                             name="salary"
                             value={salary}
@@ -94,12 +98,13 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
                         <label htmlFor="date">Date</label>
                         <input
                             id="date"
+                            class= "dfield"
                             type="date"
                             name="date"
                             value={date}
                             onChange={e => setDate(e.target.value)}
                         />
-                        <input type="submit" value="Add" className="taddbtn" />
+                        <input type="submit" value="Add" class="taddbtn" />
                     </form>
                 </div>
             </div>

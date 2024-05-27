@@ -1,4 +1,5 @@
-import React, { Link, useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import "./Employee.css";
 
@@ -46,8 +47,8 @@ function EmployeeList() {
         <div className="topnav">
           <span>EMPLOYEE LIST</span>
           <div className="topnav-right">
-            <button onClick={() => setIsAdding(true)} className=''>Add</button>
-            {/* <Link className="addbtn" to="/employee-add"><i className="uil uil-plus-circle"></i></Link> */}
+            <button onClick={() => setIsAdding(true)} className='addbtn'>Add</button>
+            <Link className="addbtn" to="/employee-add"><i className="uil uil-plus-circle"></i></Link>
           </div>
         </div>
         <main>
