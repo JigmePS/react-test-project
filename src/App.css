@@ -791,51 +791,6 @@ body.dark .switch:before {
   top: 0px;
 }
 
-/* #Email {
-  color: rgb(151, 160, 175);
-  text-overflow: ellipsis;
-  font-size: 16px;
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  text-align: left;
-  min-height: 21px;
-  left: 13px;
-  top: 13px;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  border: solid 1px rgb(223, 225, 230);
-  border-radius: 5px;
-  padding-left: 10px;
-} */
-/* 
-#SignUpButton {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
-  align-items: flex-start;
-  border: solid 1px undefined;
-  border-radius: 5px;
-  background: linear-gradient(-135deg, rgb(82, 67, 170), rgb(237, 80, 180));
-  box-sizing: border-box;
-  padding-bottom: 14px;
-  padding-top: 12px;
-  padding-left: 20px;
-  padding-right: 20px;
-  position: absolute;
-  left: 316px;
-  top: 0px;
-  width: 164px;
-  height: 50px;
-  color: white;
-  text-overflow: ellipsis;
-  font-size: 15px;
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: center;
-} */
-
 #MCopyright2024Operis {
   color: rgb(233, 233, 233);
   text-overflow: ellipsis;
