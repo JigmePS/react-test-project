@@ -3,9 +3,9 @@ import Swal from 'sweetalert2';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
-import List from '../EmployeeManagement/EmployeeList';
-import Add from '../EmployeeManagement/EmployeeAdd';
-import Edit from '../EmployeeManagement/EmployeeEdit';
+// import List from '../EmployeeManagement/EmployeeList';
+// import Add from '../EmployeeManagement/EmployeeAdd';
+// import Edit from '../EmployeeManagement/EmployeeEdit';
 
 function Layout() {
 
@@ -125,6 +125,16 @@ function Layout() {
       }
     });
   };
+
+  // const handleSearch = (event) => {
+  //   setSearchQuery(event.target.value);
+  // };
+
+  // const filteredEmployees = employees.filter(employee => 
+  //   employee.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //   employee.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //   employee.email.toLowerCase().includes(searchQuery.toLowerCase())
+  // );
 
   const contextValue = {
     employees,

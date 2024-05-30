@@ -1,32 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import "./Search.css";
 
-const Search = () => {
-  const [projects, setProjects] = useState([]);
+function Search() {
+  const { employees, handleEdit, handleDelete, setIsAdding } = useOutletContext();
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
   const paginationLimit = 12;
-
-  useEffect(() => {
-    // Simulated API call to fetch projects data
-    const fetchData = async () => {
-      try {
-        const response = await fetch("your API endpoint");
-        const data = await response.json();
-        setProjects(data);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const handlePageChange = (pageNum) => {
     setCurrentPage(pageNum);
   };
 
-  const renderPageNumbers = () => {
-    const pageCount = Math.ceil(projects.length / paginationLimit);
+  const renderPageNumbers = (filteredEmployees) => {
+    const pageCount = Math.ceil(filteredEmployees.length / paginationLimit);
     const pageNumbers = [];
     for (let i = 1; i <= pageCount; i++) {
       pageNumbers.push(
@@ -42,36 +30,88 @@ const Search = () => {
     return pageNumbers;
   };
 
+  const filteredEmployees = employees.filter(employee =>
+    employee.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    employee.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    employee.email.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const startIndex = (currentPage - 1) * paginationLimit;
   const endIndex = currentPage * paginationLimit;
+  const visibleEmployees = filteredEmployees.slice(startIndex, endIndex);
 
-  const visibleProjects = projects.slice(startIndex, endIndex);
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0
+  });
 
   return (
     <section className="dashboard">
       <div className="plist">
-        <div className="topnav">
-          <form action="user?page=searchproject" method="post">
-            <div className="sbar">
-              <input type="text" name="sresult" className="sfield" placeholder="Search" />
-              <button type="submit" className="sicon">
-                <i className="uil uil-search"></i>
-              </button>
-            </div>
-          </form>
-        </div>
 
+        <div className="topnav">
+          <div className="sbar">
+            <input
+              type="text"
+              name="sresult"
+              className="sfield"
+              placeholder="Search"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setCurrentPage(1); // Reset to first page on search
+              }}
+            />
+          </div>
+        </div>
         <main>
           <div className="table-container">
             <table className="task-table">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Salary</th>
+                  <th>Date</th>
+                  <th colSpan={2} className="text-center">Actions</th>
+                </tr>
+              </thead>
               <tbody>
-                {visibleProjects.map((project, index) => (
-                  <tr key={index}>
-                    <td className="sname">
-                      <a href={`user?page=sptask&pid=${project.pid}&pname=${project.pname}`}>{project.pname}</a>
-                    </td>
+                {visibleEmployees.length > 0 ? (
+                  visibleEmployees.map((employee, i) => (
+                    <tr key={employee.id}>
+                      <td>{startIndex + i + 1}</td>
+                      <td>{employee.firstName}</td>
+                      <td>{employee.lastName}</td>
+                      <td>{employee.email}</td>
+                      <td>{formatter.format(employee.salary)}</td>
+                      <td>{employee.date}</td>
+                      <td className="text-right">
+                        <button
+                          onClick={() => handleEdit(employee.id)}
+                          className="button muted-button"
+                        >
+                          Edit
+                        </button>
+                      </td>
+                      <td className="text-left">
+                        <button
+                          onClick={() => handleDelete(employee.id)}
+                          className="button muted-button"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={8} className="text-center">No Employees</td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </div>
@@ -84,11 +124,11 @@ const Search = () => {
             >
               &lt;
             </button>
-            <div id="pagination-numbers">{renderPageNumbers()}</div>
+            <div id="pagination-numbers">{renderPageNumbers(filteredEmployees)}</div>
             <button
-              className={`pagination-button ${currentPage * paginationLimit >= projects.length ? "disabled" : ""}`}
+              className={`pagination-button ${currentPage * paginationLimit >= filteredEmployees.length ? "disabled" : ""}`}
               onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage * paginationLimit >= projects.length}
+              disabled={currentPage * paginationLimit >= filteredEmployees.length}
             >
               &gt;
             </button>
@@ -97,6 +137,6 @@ const Search = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Search;

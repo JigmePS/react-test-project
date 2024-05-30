@@ -4,18 +4,16 @@ import { useOutletContext } from "react-router-dom";
 import "./Employee.css";
 
 function EmployeeList() {
-  const [projects, setProjects] = useState([]);
+  const { employees, handleEdit, handleDelete, setIsAdding } = useOutletContext();
   const [currentPage, setCurrentPage] = useState(1);
   const paginationLimit = 12;
-
-  const { employees, handleEdit, handleDelete, setIsAdding } = useOutletContext();
 
   const handlePageChange = (pageNum) => {
     setCurrentPage(pageNum);
   };
 
   const renderPageNumbers = () => {
-    const pageCount = Math.ceil(projects.length / paginationLimit);
+    const pageCount = Math.ceil(employees.length / paginationLimit);
     const pageNumbers = [];
     for (let i = 1; i <= pageCount; i++) {
       pageNumbers.push(
@@ -33,7 +31,7 @@ function EmployeeList() {
 
   const startIndex = (currentPage - 1) * paginationLimit;
   const endIndex = currentPage * paginationLimit;
-  const visibleProjects = projects.slice(startIndex, endIndex);
+  const visibleEmployees = employees.slice(startIndex, endIndex);
 
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -47,7 +45,6 @@ function EmployeeList() {
         <div className="topnav">
           <span>EMPLOYEE LIST</span>
           <div className="topnav-right">
-            <button onClick={() => setIsAdding(true)} className='addbtn'>Add</button>
             <Link className="addbtn" to="/employee-add"><i className="uil uil-plus-circle"></i></Link>
           </div>
         </div>
@@ -66,10 +63,10 @@ function EmployeeList() {
                 </tr>
               </thead>
               <tbody>
-                {employees.length > 0 ? (
-                  employees.map((employee, i) => (
+                {visibleEmployees.length > 0 ? (
+                  visibleEmployees.map((employee, i) => (
                     <tr key={employee.id}>
-                      <td>{i + 1}</td>
+                      <td>{startIndex + i + 1}</td>
                       <td>{employee.firstName}</td>
                       <td>{employee.lastName}</td>
                       <td>{employee.email}</td>
@@ -112,9 +109,9 @@ function EmployeeList() {
             </button>
             <div id="pagination-numbers">{renderPageNumbers()}</div>
             <button
-              className={`pagination-button ${currentPage * paginationLimit >= projects.length ? "disabled" : ""}`}
+              className={`pagination-button ${currentPage * paginationLimit >= employees.length ? "disabled" : ""}`}
               onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage * paginationLimit >= projects.length}
+              disabled={currentPage * paginationLimit >= employees.length}
             >
               &gt;
             </button>

@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { useOutletContext } from "react-router-dom";
-import "./AddEmployee.css"; // Make sure to create and import the corresponding CSS file
+import "./AddEmployee.css"; // Ensure the CSS file is created and linked properly
 
-function AddEmployee({ employees, setEmployees, setIsAdding }) {
+function AddEmployee() {
+    const { employees, setEmployees, setIsAdding } = useOutletContext();
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -15,7 +16,7 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
 
     useEffect(() => {
         textInput.current.focus();
-    }, [])
+    }, []);
 
     const handleAdd = e => {
         e.preventDefault();
@@ -28,7 +29,7 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
             });
         }
 
-        const id = employees.length + 1;
+        const id = employees.length ? employees[employees.length - 1].id + 1 : 1;
         const newEmployee = {
             id,
             firstName,
@@ -36,20 +37,19 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
             email,
             salary,
             date
-        }
-        employees.push(newEmployee);
-        setEmployees(employees);
+        };
+
+        setEmployees([...employees, newEmployee]);
         setIsAdding(false);
 
         Swal.fire({
             icon: 'success',
             title: 'Added!',
-            text: `${firstName} ${lastName}'s data has been Added.`,
+            text: `${firstName} ${lastName}'s data has been added.`,
             showConfirmButton: false,
             timer: 1500
         });
-    }
-
+    };
 
     return (
         <section className="dashboard">
@@ -62,7 +62,7 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
                         <label htmlFor="firstName">First Name</label>
                         <input
                             id="firstName"
-                            class= "field"
+                            className="field"
                             type="text"
                             ref={textInput}
                             name="firstName"
@@ -72,7 +72,7 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
                         <label htmlFor="lastName">Last Name</label>
                         <input
                             id="lastName"
-                            class= "field"
+                            className="field"
                             type="text"
                             name="lastName"
                             value={lastName}
@@ -81,7 +81,7 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
                         <label htmlFor="email">Email</label>
                         <input
                             id="email"
-                            class= "field"
+                            className="field"
                             type="email"
                             name="email"
                             value={email}
@@ -90,7 +90,7 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
                         <label htmlFor="salary">Salary ($)</label>
                         <input
                             id="salary"
-                            class= "field"
+                            className="field"
                             type="number"
                             name="salary"
                             value={salary}
@@ -99,18 +99,18 @@ function AddEmployee({ employees, setEmployees, setIsAdding }) {
                         <label htmlFor="date">Date</label>
                         <input
                             id="date"
-                            class= "dfield"
+                            className="dfield"
                             type="date"
                             name="date"
                             value={date}
                             onChange={e => setDate(e.target.value)}
                         />
-                        <input type="submit" value="Add" class="taddbtn" />
+                        <input type="submit" value="Add" className="taddbtn" />
                     </form>
                 </div>
             </div>
         </section>
     );
-};
+}
 
 export default AddEmployee;
