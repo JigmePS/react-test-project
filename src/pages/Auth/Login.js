@@ -51,7 +51,7 @@ const Login = () => {
           <div id="Case">
 
             <span id="LogInToOperis">
-              Log in to Magister
+              Log in to EMS
             </span>
 
             <form onSubmit={doLogin} id="Form">
@@ -85,7 +85,7 @@ const Login = () => {
           </div>
 
           <span id="Copyright2024Operis">
-            Copyright © 2024 Magister
+            Copyright © 2024 EMS
           </span>
 
         </div>

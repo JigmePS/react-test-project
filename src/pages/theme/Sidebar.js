@@ -40,35 +40,18 @@ const Sidebar = () => {
 
   return (
     <>
-    {/* <div>
-      <ul className="sidebar-nav">
-        <li>
-          <Link to="/user-management">User Management</Link>
-        </li>
-        <li>
-          <Link to="/faq">FQA</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-      </ul>
-    </div> */}
-      {/* <body> */}
+
         <nav id="sidenav">
           <div class="logo-name">
             <div class="images">
               <img src={logoImg} alt="image of Logo" />
             </div>
 
-            <span class="logo_name">MAGISTER</span>
+            <span class="logo_name">EMS</span>
           </div>
 
           <div class="menu-items">
             <ul class="nav-links">
-              {/* <li><Link to="/list">
-                <i class="uil uil-estate"></i>
-                <span class="link-name">Home</span>
-              </Link></li> */}
               <li><Link to="/employee-list">
                 <i class="uil uil-user"></i>
                 <span class="link-name">Employees List</span>
@@ -82,37 +65,14 @@ const Sidebar = () => {
             </ul>
 
             <ul class="logout-mode">
-              {/* <li><Link to="/test">
-                <i class="uil uil-user-circle"></i>
-                <span class="link-name">User</span>
-              </Link></li> */}
-              {/* <li class="mode">
-                <a href="#">
-                  <i class="uil uil-moon"></i>
-                  <span class="link-name">Dark Mode</span>
-                </a>
-
-                <div class="mode-toggle">
-                  <span class="switch"></span>
-                </div>
-              </li> */}
               <li><Link to="/login" onClick={logout}>
                 <i class="uil uil-signout"></i>
                 <span class="link-name">Logout</span>
               </Link></li>
 
-              {/* <li>
-                <button
-                  type="button"
-                  onClick={}
-                  className="btn btn-danger"
-                >Logout</button>
-              </li> */}
-
             </ul>
           </div>
         </nav>
-      {/* </body> */}
     </>
   );
 }
