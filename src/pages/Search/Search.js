@@ -89,14 +89,14 @@ function Search() {
                       <td>{employee.email}</td>
                       <td>{formatter.format(employee.salary)}</td>
                       <td>{employee.date}</td>
-                      <td className="text-right">
+                      {/* <td className="text-right">
                         <button
                           onClick={() => handleEdit(employee.id)}
                           className="button muted-button"
                         >
                           Edit
                         </button>
-                      </td>
+                      </td> */}
                       <td className="text-left">
                         <button
                           onClick={() => handleDelete(employee.id)}

@@ -6,6 +6,7 @@ import Login from "./pages/Auth/Login";
 import PrivateRoute from "./routes/PrivateRoute";
 import EmployeeList from "./pages/EmployeeManagement/EmployeeList";
 import EmployeeAdd from "./pages/EmployeeManagement/EmployeeAdd";
+// import EmployeeEdit from "./pages/EmployeeManagement/EmployeeEdit";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<PrivateRoute component={Layout} />} >
             <Route path="/employee-list" element={<PrivateRoute component={EmployeeList}/>} />
             <Route path="/employee-add" element={<PrivateRoute component={EmployeeAdd}/>} />
+            {/* <Route path="/employee-edit/:id" element={<PrivateRoute component={EmployeeEdit}/>} /> */}
             <Route path="/search" element={<PrivateRoute component={Search}/>} />
           </Route>
           <Route path="/login" element={<Login />} />
